@@ -45,6 +45,7 @@ ifeq ($(NO_IIO_EVENTS),true)
 LOCAL_CFLAGS += -D__NO_EVENTS__
 endif
 LOCAL_LDFLAGS := -Wl,--gc-sections
+LOCAL_HEADER_LIBRARIES := libhardware_headers libcutils_headers liblog_headers libutils_headers
 LOCAL_SHARED_LIBRARIES := liblog libcutils libdl
 LOCAL_PRELINK_MODULE := false
 LOCAL_SRC_FILES := $(src_files)
@@ -56,7 +57,7 @@ LOCAL_MODULE := sens
 LOCAL_CFLAGS := -DLOG_TAG=\"Sensors\" -fvisibility=hidden
 LOCAL_SHARED_LIBRARIES := liblog libcutils libdl
 LOCAL_SRC_FILES := sens.c
-LOCAL_MODULE_TAGS := eng
+LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR_EXECUTABLES)
 include $(BUILD_EXECUTABLE)
 
@@ -87,6 +88,6 @@ LOCAL_MODULE := activity
 LOCAL_CFLAGS := -DLOG_TAG=\"Activity\" -fvisibility=hidden
 LOCAL_SHARED_LIBRARIES := liblog libcutils libdl
 LOCAL_SRC_FILES := activity.c
-LOCAL_MODULE_TAGS := eng
+LOCAL_MODULE_TAGS := optional
 LOCAL_MODULE_PATH := $(TARGET_OUT_VENDOR_EXECUTABLES)
 include $(BUILD_EXECUTABLE)
